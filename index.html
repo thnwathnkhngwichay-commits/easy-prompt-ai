@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Easy Prompt AI</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo">EP</div>
+            <div>
+                <h2>Easy Prompt AI</h2>
+                <p>เครื่องมือช่วยสร้างคลิปธรรมะ 1 นาที</p>
+            </div>
+        </div>
+
+        <div class="topbar-actions">
+            <a href="#generator" class="topbar-link">เริ่มสร้างงาน</a>
+            <button id="logoutBtn" class="logout-btn hidden" type="button">ออกจากระบบ</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="badge">เพื่อช่วยงานเผยแผ่พระพุทธศาสนา</p>
+
+                <h1>สร้างคลิปนิทานชาดก 1 นาที ด้วย AI</h1>
+
+                <p class="hero-text">
+                    เปลี่ยนหัวข้อและเนื้อเรื่องธรรมะ ให้กลายเป็นสคริปต์เสียง แผน 10 ฉาก
+                    Prompt ภาพ Prompt วิดีโอ และ Master Prompt สำหรับนำไปใช้กับ ChatGPT หรือ Gemini
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#generator" class="primary-btn">เริ่มสร้างคลิปธรรมะ</a>
+                    <a href="#how-it-works" class="secondary-btn">ดูวิธีใช้งาน</a>
+                </div>
+
+                <img src="images/buddha-mara.jpg" alt="พระพุทธเจ้าปราบมาร" class="hero-image" />
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section">
+            <div class="section-title">
+                <p class="badge">Workflow</p>
+                <h2>ขั้นตอนการทำงาน</h2>
+                <p>กรอกน้อย แต่ได้ผลลัพธ์พร้อมนำไปใช้งานต่อ</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span>1</span>
+                    <h3>กรอกเนื้อเรื่อง</h3>
+                    <p>ใส่หัวข้อนิทานชาดก เนื้อเรื่องย่อ กลุ่มเป้าหมาย และสไตล์ภาพ</p>
+                </div>
+
+                <div class="step-card">
+                    <span>2</span>
+                    <h3>สร้างโครงคลิป</h3>
+                    <p>ระบบช่วยจัดเป็นสคริปต์เสียง แผนฉาก และข้อคิดท้ายเรื่อง</p>
+                </div>
+
+                <div class="step-card">
+                    <span>3</span>
+                    <h3>นำไปใช้กับ AI</h3>
+                    <p>คัดลอก Prompt ไปใช้กับ Google Flow, Google AI Studio, ChatGPT หรือ Gemini</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="generator" class="section generator-section">
+            <div class="section-title">
+                <p class="badge">Generator</p>
+                <h2>สร้างคลิปธรรมะ 1 นาที</h2>
+                <p>โหมดง่าย: กรอก 4 อย่าง แล้วกดสร้างได้เลย</p>
+            </div>
+
+            <div class="generator-layout">
+                <section class="form-card">
+                    <h3>ข้อมูลตั้งต้น</h3>
+
+                    <label for="storySelect">เลือกนิทานชาดก</label>
+                    <select id="storySelect"></select>
+
+                    <div id="storyTitleGroup" class="hidden">
+                        <label for="storyTitle">หัวข้อเรื่อง / ชื่อนิทานชาดก</label>
+                        <input type="text" id="storyTitle" placeholder="เช่น สัตติคุมพชาดก" />
+                    </div>
+
+                    <label for="storySource">ข้อมูลเพิ่มเติม / แก้ไขเรื่องย่อ</label>
+                    <textarea id="storySource"
+                        placeholder="พิมพ์ข้อมูลสำคัญของนิทานชาดก หรือเนื้อเรื่องย่อเพิ่มเติมที่ต้องการให้ AI นำไปประมวลผล"></textarea>
+
+                    <label for="targetSelect">กลุ่มเป้าหมาย</label>
+                    <select id="targetSelect"></select>
+
+                    <label for="visualStyleSelect">สไตล์ภาพ</label>
+                    <select id="visualStyleSelect"></select>
+
+                    <button id="toggleAdvancedBtn" class="secondary-full-btn" type="button">
+                        ตั้งค่าเพิ่มเติม
+                    </button>
+
+                    <div id="advancedOptions" class="advanced-box hidden">
+                        <label for="durationSelect">ความยาวคลิป</label>
+                        <select id="durationSelect"></select>
+
+                        <label for="sceneCountSelect">จำนวนฉาก</label>
+                        <select id="sceneCountSelect"></select>
+
+                        <label for="toneSelect">โทนการเล่าเรื่อง</label>
+                        <select id="toneSelect"></select>
+
+                        <label for="voiceSelect">เสียงบรรยาย</label>
+                        <select id="voiceSelect"></select>
+
+                        <label for="languageLevelSelect">ระดับภาษา</label>
+                        <select id="languageLevelSelect"></select>
+
+                        <label for="creatorName">ชื่อผู้จัดทำ</label>
+                        <input type="text" id="creatorName" />
+
+                        <label for="institutionName">สถาบัน / หน่วยงาน</label>
+                        <input type="text" id="institutionName" />
+                    </div>
+
+                    <button id="generateBtn" class="primary-full-btn" type="button">
+                        สร้างชุดงานคลิปธรรมะ
+                    </button>
+                </section>
+
+                <section class="preview-card">
+                    <h3>สิ่งที่เว็บจะสร้างให้</h3>
+
+                    <div class="preview-list">
+                        <button class="preview-item-btn" data-target="narration-card" type="button">สคริปต์เสียงบรรยาย 1 นาที</button>
+                        <button class="preview-item-btn" data-target="scene-card" type="button">แผน 10 ฉาก</button>
+                        <button class="preview-item-btn" data-target="master-card" type="button">Master Prompt สำหรับ ChatGPT / Gemini</button>
+                    </div>
+
+                    <p class="warning-text" id="warningText"></p>
+                </section>
+            </div>
+        </section>
+
+        <section id="results" class="section results-section hidden">
+            <div class="section-title">
+                <p class="badge">Result</p>
+                <h2>ผลลัพธ์ที่สร้างได้</h2>
+                <p>คัดลอกแต่ละส่วน หรือใช้ Master Prompt เพื่อให้ AI สร้างเวอร์ชันสมบูรณ์</p>
+            </div>
+
+            <div class="action-row">
+                <button id="copyAllBtn" class="secondary-full-btn" type="button">
+                    คัดลอกทั้งหมด
+                </button>
+
+                <button id="downloadBtn" class="secondary-full-btn" type="button">
+                    ดาวน์โหลด .txt
+                </button>
+
+                <button id="saveProjectBtn" class="secondary-full-btn" type="button">
+                    บันทึกในเครื่อง
+                </button>
+
+                <button id="clearBtn" class="danger-btn" type="button">
+                    ล้างข้อมูล
+                </button>
+            </div>
+
+            <div id="resultContainer" class="result-grid"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Easy Prompt AI — สร้างขึ้นเพื่อช่วยงานพระพุทธศาสนา</p>
+    </footer>
+
+    <!-- Login Modal Overlay -->
+    <div id="loginModal" class="login-modal-overlay">
+        <div class="login-modal-card">
+            <div class="login-modal-logo">EP</div>
+            <h2>เข้าสู่ระบบ Easy Prompt AI</h2>
+            <p>กรุณาลงชื่อเข้าใช้งานสำหรับสิทธิ์การเข้าถึงเครื่องมือช่วยสร้างคลิปธรรมะ</p>
+            
+            <form id="loginForm">
+                <div class="login-input-group">
+                    <label for="usernameInput">ชื่อผู้ใช้ (Username)</label>
+                    <input type="text" id="usernameInput" placeholder="กรอกชื่อผู้ใช้" required autocomplete="username" />
+                </div>
+                
+                <div class="login-input-group">
+                    <label for="passwordInput">รหัสผ่าน (Password)</label>
+                    <input type="password" id="passwordInput" placeholder="กรอกรหัสผ่าน" required autocomplete="current-password" />
+                </div>
+                
+                <p id="loginErrorMsg" class="login-error-text hidden">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</p>
+                
+                <button type="submit" id="loginSubmitBtn" class="primary-full-btn">เข้าสู่ระบบ</button>
+            </form>
+            
+            <div class="login-demo-hint">
+                <p>💡 บัญชีสำหรับ Demo: <strong>admin</strong> / รหัสผ่าน: <strong>1234</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js?v=1.5"></script>
+    <script src="script.js?v=1.5"></script>
+</body>
+
+</html>

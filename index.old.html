@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Easy Prompt AI</title>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <main class="app">
+        <section class="hero">
+            <p class="badge">Dhamma Prompt Generator</p>
+            <h1>Easy Prompt AI</h1>
+            <p class="subtitle">
+                เว็บช่วยสร้าง Prompt ธรรมะ สำหรับภาพ วิดีโอ โพสต์ และเพลง
+            </p>
+        </section>
+
+        <section class="card">
+            <label for="topic">หัวข้อธรรมะ</label>
+            <input type="text" id="topic" placeholder="เช่น ความเพียร, ศีล 5, บุญ, เมตตา" />
+
+            <label for="target">กลุ่มเป้าหมาย</label>
+            <select id="target"></select>
+
+            <label for="promptType">ประเภท Prompt</label>
+            <select id="promptType"></select>
+
+            <label for="style">สไตล์งาน</label>
+            <select id="style"></select>
+
+            <button id="generateBtn">สร้าง Prompt</button>
+        </section>
+
+        <section class="card result-card">
+            <div class="result-header">
+                <h2>Prompt ที่สร้างได้</h2>
+                <button id="copyBtn" class="copy-btn">คัดลอก</button>
+            </div>
+
+            <textarea id="result" readonly placeholder="Prompt จะปรากฏตรงนี้..."></textarea>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
