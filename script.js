@@ -1,3 +1,17 @@
+// Supabase Configuration
+// ใส่ URL และ Anon Key ของคุณที่นี่ (หากปล่อยว่างไว้ ระบบจะใช้ข้อมูลนิทานแบบออฟไลน์ใน data.js เป็น Fallback โดยอัตโนมัติ)
+const SUPABASE_URL = "";
+const SUPABASE_ANON_KEY = "";
+let supabaseClient = null;
+
+if (typeof supabase !== "undefined" && SUPABASE_URL && SUPABASE_ANON_KEY) {
+    try {
+        supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } catch (e) {
+        console.error("Failed to initialize Supabase client:", e);
+    }
+}
+
 let generatedSections = [];
 
 // ฟังก์ชันเข้าถึง sessionStorage อย่างปลอดภัยเพื่อป้องกันเบราว์เซอร์บล็อค local file (file://)
@@ -29,9 +43,50 @@ function removeSessionValue(key) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+async function initializeStories() {
+    if (!supabaseClient) {
+        console.log("Supabase URL หรือ Anon Key ไม่ได้กำหนดค่า หรือโหลดไลบรารีไม่สำเร็จ ใช้ข้อมูลนิทานแบบ Local Fallback จาก data.js");
+        return;
+    }
+
+    try {
+        console.log("กำลังดึงข้อมูลนิทานจาก Supabase...");
+        const { data, error } = await supabaseClient
+            .from("stories")
+            .select("slug, label, source")
+            .order("created_at", { ascending: true });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+            const mappedStories = data.map((story) => ({
+                id: story.slug,
+                label: story.label,
+                source: story.source
+            }));
+
+            // เพิ่มตัวเลือก Custom ท้ายสุดเสมอ
+            mappedStories.push({
+                id: "custom",
+                label: "✍️ กำหนดเรื่องเอง (Custom)...",
+                source: ""
+            });
+
+            EASY_PROMPT_DATA.stories = mappedStories;
+            console.log("โหลดข้อมูลนิทานจาก Supabase สำเร็จ:", EASY_PROMPT_DATA.stories);
+        } else {
+            console.warn("ไม่พบข้อมูลนิทานในตาราง Supabase ใช้ข้อมูลนิทานสำรอง");
+        }
+    } catch (err) {
+        console.error("เกิดข้อผิดพลาดในการดึงข้อมูลจาก Supabase:", err);
+        console.log("ระบบสลับไปใช้ข้อมูลนิทานสำรองจาก data.js อัตโนมัติ");
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
     try {
         checkLoginStatus();
+        await initializeStories();
         setupSelectOptions();
         setupDefaultValues();
         setupEventListeners();
@@ -666,7 +721,7 @@ function renderResults(sections) {
         const button = document.createElement("button");
         button.className = "copy-section-btn";
         button.textContent = "คัดลอกส่วนนี้";
-        button.addEventListener("click", () => copyText(section.content));
+        button.addEventListener("click", (event) => copyText(section.content, event.currentTarget));
 
         card.appendChild(title);
         card.appendChild(pre);
@@ -676,13 +731,37 @@ function renderResults(sections) {
     });
 }
 
-function copyText(text) {
+function copyText(text, btnElement) {
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        console.error("Clipboard API is not supported or not accessible.");
+        return;
+    }
+
     navigator.clipboard.writeText(text).then(() => {
-        alert("คัดลอกเรียบร้อยแล้วครับ");
+        if (btnElement) {
+            if (btnElement._copyTimeout) {
+                clearTimeout(btnElement._copyTimeout);
+            }
+            if (!btnElement._originalText) {
+                btnElement._originalText = btnElement.textContent;
+            }
+
+            btnElement.textContent = "✓ คัดลอกแล้ว!";
+            btnElement.classList.add("copy-success");
+
+            btnElement._copyTimeout = setTimeout(() => {
+                btnElement.textContent = btnElement._originalText;
+                btnElement.classList.remove("copy-success");
+                delete btnElement._originalText;
+                delete btnElement._copyTimeout;
+            }, 2000);
+        }
+    }).catch((err) => {
+        console.error("Failed to copy text: ", err);
     });
 }
 
-function copyAllResults() {
+function copyAllResults(event) {
     if (generatedSections.length === 0) {
         alert("ยังไม่มีผลลัพธ์ให้คัดลอกครับ");
         return;
@@ -692,7 +771,8 @@ function copyAllResults() {
         .map((section) => `# ${section.title}\n${section.content}`)
         .join("\n\n------------------------------\n\n");
 
-    copyText(allText);
+    const btn = event && event.currentTarget ? event.currentTarget : document.getElementById("copyAllBtn");
+    copyText(allText, btn);
 }
 
 function downloadTextFile() {
