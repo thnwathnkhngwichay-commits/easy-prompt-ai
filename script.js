@@ -1,7 +1,7 @@
 // Supabase Configuration
 // ใส่ URL และ Anon Key ของคุณที่นี่ (หากปล่อยว่างไว้ ระบบจะใช้ข้อมูลนิทานแบบออฟไลน์ใน data.js เป็น Fallback โดยอัตโนมัติ)
-const SUPABASE_URL = "";
-const SUPABASE_ANON_KEY = "";
+const SUPABASE_URL = "https://gdumoliwfdqumpvfaucp.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_hxVdHJ9G22UJK1FDpn647A_gdy6Q-GB";
 let supabaseClient = null;
 
 if (typeof supabase !== "undefined" && SUPABASE_URL && SUPABASE_ANON_KEY) {

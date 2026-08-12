@@ -31,3 +31,7 @@
    - ดาวน์โหลดผลลัพธ์เป็นไฟล์ข้อความ `.txt`
    - บันทึกโปรเจกต์ลงเครื่องชั่วคราวผ่าน LocalStorage
    - ล้างข้อมูลเพื่อเริ่มเขียนเรื่องใหม่
+
+## การเชื่อมต่อฐานข้อมูล (Database Integration - Phase 2A)
+- **Supabase Integration**: เชื่อมต่อ Supabase Project `easy-prompt-ai` ดึงข้อมูลนิทานชาดกจากตาราง `public.stories` สำเร็จ
+- **Offline Fallback**: คงระบบ Local Fallback จาก `data.js` ไว้ 100% หากไม่ได้เชื่อมต่อเครือข่าย หรือไม่สามารถดึงข้อมูลจาก Supabase ได้

@@ -12,3 +12,10 @@
   - เพิ่มไฟล์กติกา AI `AI_RULES.md`
   - เพิ่มไฟล์สถานะโครงการ `PROJECT_STATUS.md`
   - เพิ่มไฟล์บันทึกประวัติการแก้ไข `CHANGELOG.md`
+
+### [2026-08-11] Phase 2A: Supabase Jataka Stories Integration
+- **การเชื่อมต่อ Supabase**:
+  - กำหนดค่า `SUPABASE_URL` และ `SUPABASE_ANON_KEY` ใน `script.js` สำหรับ Supabase Project `easy-prompt-ai`
+  - ฟังก์ชัน `initializeStories()` ดึงข้อมูลนิทานชาดกจากตาราง `public.stories` (`slug`, `label`, `source`) สำเร็จ
+- **การคงระบบ Offline Fallback**:
+  - หากไม่ได้ตั้งค่า Key หรือระบบเน็ตเวิร์กไม่พร้อมใช้งาน ระบบจะสลับไปใช้ `data.js` โดยอัตโนมัติ
