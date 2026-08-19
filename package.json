@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "data.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

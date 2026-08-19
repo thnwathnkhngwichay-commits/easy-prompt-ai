@@ -5,15 +5,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Easy Prompt AI</title>
+    <!-- SEO -->
+    <title>Easy Prompt AI — สร้างคลิปนิทานชาดก 1 นาที ด้วย AI</title>
+    <meta name="description" content="Easy Prompt AI เครื่องมือช่วยสร้างคลิปธรรมะ 9:16 นิทานชาดก 1 นาที พร้อม Script เสียง แผน 10 ฉาก Visual Prompt Video Prompt และ Master Prompt" />
+    <meta name="theme-color" content="#0e0904" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <!-- =============================================
+         HEADER / NAVIGATION
+    ============================================= -->
     <header class="topbar">
         <div class="brand">
-            <div class="logo">EP</div>
+            <img src="images/logo.png" alt="Easy Prompt AI Logo" class="logo" />
             <div>
                 <h2>Easy Prompt AI</h2>
                 <p>เครื่องมือช่วยสร้างคลิปธรรมะ 1 นาที</p>
@@ -21,15 +32,20 @@
         </div>
 
         <div class="topbar-actions">
+            <span id="userEmailDisplay" class="user-email-display hidden"></span>
+            <a href="#showcase" class="topbar-link">ตัวอย่าง</a>
             <a href="#generator" class="topbar-link">เริ่มสร้างงาน</a>
             <button id="logoutBtn" class="logout-btn hidden" type="button">ออกจากระบบ</button>
         </div>
     </header>
 
     <main>
+        <!-- =============================================
+             HERO SECTION
+        ============================================= -->
         <section class="hero">
             <div class="hero-content">
-                <p class="badge">เพื่อช่วยงานเผยแผ่พระพุทธศาสนา</p>
+                <p class="badge">✨ เพื่อช่วยงานเผยแผ่พระพุทธศาสนา</p>
 
                 <h1>สร้างคลิปนิทานชาดก 1 นาที ด้วย AI</h1>
 
@@ -39,47 +55,121 @@
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#generator" class="primary-btn">เริ่มสร้างคลิปธรรมะ</a>
+                    <a href="#generator" class="primary-btn">🎬 เริ่มสร้างคลิปธรรมะ</a>
                     <a href="#how-it-works" class="secondary-btn">ดูวิธีใช้งาน</a>
+                </div>
+
+                <!-- Hero Stats Strip -->
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">10</span>
+                        <span class="hero-stat-label">ฉาก / คลิป</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">9:16</span>
+                        <span class="hero-stat-label">Vertical Format</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">60s</span>
+                        <span class="hero-stat-label">ความยาวคลิป</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">AI</span>
+                        <span class="hero-stat-label">Ready Prompts</span>
+                    </div>
                 </div>
 
                 <img src="images/buddha-mara.jpg" alt="พระพุทธเจ้าปราบมาร" class="hero-image" />
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             HOW IT WORKS
+        ============================================= -->
         <section id="how-it-works" class="section">
             <div class="section-title">
                 <p class="badge">Workflow</p>
                 <h2>ขั้นตอนการทำงาน</h2>
-                <p>กรอกน้อย แต่ได้ผลลัพธ์พร้อมนำไปใช้งานต่อ</p>
+                <p>จากนิทานชาดก → ถึงคลิปธรรมะ 9:16 / 60 วินาที Realistic</p>
             </div>
 
-            <div class="steps-grid">
+            <div class="steps-grid steps-grid-5">
                 <div class="step-card">
                     <span>1</span>
-                    <h3>กรอกเนื้อเรื่อง</h3>
-                    <p>ใส่หัวข้อนิทานชาดก เนื้อเรื่องย่อ กลุ่มเป้าหมาย และสไตล์ภาพ</p>
+                    <h3>เลือกนิทาน</h3>
+                    <p>เลือกนิทานชาดกหรือกรอกเรื่องเอง พร้อมกลุ่มเป้าหมายและสไตล์ภาพ</p>
                 </div>
 
                 <div class="step-card">
                     <span>2</span>
-                    <h3>สร้างโครงคลิป</h3>
-                    <p>ระบบช่วยจัดเป็นสคริปต์เสียง แผนฉาก และข้อคิดท้ายเรื่อง</p>
+                    <h3>สร้าง Character Sheet</h3>
+                    <p>กำหนดหน้าตา เสื้อผ้า Visual Identity ให้คงเส้นคงวาทุกฉาก</p>
                 </div>
 
                 <div class="step-card">
                     <span>3</span>
-                    <h3>นำไปใช้กับ AI</h3>
-                    <p>คัดลอก Prompt ไปใช้กับ Google Flow, Google AI Studio, ChatGPT หรือ Gemini</p>
+                    <h3>ได้ Script + 10 ฉาก</h3>
+                    <p>สคริปต์เสียง + แผน 10 ฉาก พร้อม Visual Prompt และ Video Prompt ทุกฉาก</p>
+                </div>
+
+                <div class="step-card">
+                    <span>4</span>
+                    <h3>สร้างด้วย AI</h3>
+                    <p>คัดลอก Prompt ไปใช้กับ Google Flow, Kling, RunwayML, ChatGPT หรือ Gemini</p>
+                </div>
+
+                <div class="step-card">
+                    <span>5</span>
+                    <h3>คลิป 9:16 / 1 นาที</h3>
+                    <p>วิดีโอธรรมะสมจริง แนวตั้ง 9:16 ความยาว 60 วินาที พร้อมเผยแพร่บน Reels / Shorts</p>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             FEATURE HIGHLIGHTS STRIP
+        ============================================= -->
+        <section class="section" style="padding: 60px 0;">
+            <div class="features-strip">
+                <div class="feature-item">
+                    <span class="feature-icon">🎭</span>
+                    <h4>Character Sheet</h4>
+                    <p>Visual Identity คงเส้นคงวาทุกฉาก</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📜</span>
+                    <h4>Script + 10 ฉาก</h4>
+                    <p>สคริปต์เสียง + แผนฉากครบถ้วน</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <h4>Visual + Video Prompt</h4>
+                    <p>ภาษาไทย + English พร้อมส่งให้ AI</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h4>Master Prompt</h4>
+                    <p>ชุด Prompt สำหรับ ChatGPT / Gemini</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             GENERATOR SECTION
+        ============================================= -->
         <section id="generator" class="section generator-section">
             <div class="section-title">
                 <p class="badge">Generator</p>
                 <h2>สร้างคลิปธรรมะ 1 นาที</h2>
-                <p>โหมดง่าย: กรอก 4 อย่าง แล้วกดสร้างได้เลย</p>
+                <p>กรอกข้อมูล แล้วได้ชุดงานพร้อมใช้สร้างคลิป</p>
+                <div class="standard-badge">🎬 9:16 &nbsp;•&nbsp; 60 วินาที &nbsp;•&nbsp; Realistic / Cinematic
+                    &nbsp;•&nbsp; Character Consistent</div>
             </div>
 
             <div class="generator-layout">
@@ -105,7 +195,7 @@
                     <select id="visualStyleSelect"></select>
 
                     <button id="toggleAdvancedBtn" class="secondary-full-btn" type="button">
-                        ตั้งค่าเพิ่มเติม
+                        ⚙️ ตั้งค่าเพิ่มเติม
                     </button>
 
                     <div id="advancedOptions" class="advanced-box hidden">
@@ -132,7 +222,7 @@
                     </div>
 
                     <button id="generateBtn" class="primary-full-btn" type="button">
-                        สร้างชุดงานคลิปธรรมะ
+                        ✨ สร้างชุดงานคลิปธรรมะ
                     </button>
                 </section>
 
@@ -140,9 +230,14 @@
                     <h3>สิ่งที่เว็บจะสร้างให้</h3>
 
                     <div class="preview-list">
-                        <button class="preview-item-btn" data-target="narration-card" type="button">สคริปต์เสียงบรรยาย 1 นาที</button>
-                        <button class="preview-item-btn" data-target="scene-card" type="button">แผน 10 ฉาก</button>
-                        <button class="preview-item-btn" data-target="master-card" type="button">Master Prompt สำหรับ ChatGPT / Gemini</button>
+                        <button class="preview-item-btn" data-target="character-card" type="button">🎭 Character Sheet
+                            (ความคงเส้นคงวา)</button>
+                        <button class="preview-item-btn" data-target="narration-card" type="button">📢
+                            สคริปต์เสียงบรรยาย 60 วินาที</button>
+                        <button class="preview-item-btn" data-target="scene-card" type="button">🎬 แผน 10 ฉาก พร้อม
+                            Prompt ภาพ + วิดีโอ</button>
+                        <button class="preview-item-btn" data-target="master-card" type="button">⚡ Master Prompt สำหรับ
+                            ChatGPT / Gemini</button>
                     </div>
 
                     <p class="warning-text" id="warningText"></p>
@@ -150,6 +245,9 @@
             </div>
         </section>
 
+        <!-- =============================================
+             RESULTS SECTION
+        ============================================= -->
         <section id="results" class="section results-section hidden">
             <div class="section-title">
                 <p class="badge">Result</p>
@@ -159,62 +257,224 @@
 
             <div class="action-row">
                 <button id="copyAllBtn" class="secondary-full-btn" type="button">
-                    คัดลอกทั้งหมด
+                    📋 คัดลอกทั้งหมด
                 </button>
 
                 <button id="downloadBtn" class="secondary-full-btn" type="button">
-                    ดาวน์โหลด .txt
+                    💾 ดาวน์โหลด .txt
                 </button>
 
                 <button id="saveProjectBtn" class="secondary-full-btn" type="button">
-                    บันทึกในเครื่อง
+                    🗂️ บันทึกในเครื่อง
                 </button>
 
                 <button id="clearBtn" class="danger-btn" type="button">
-                    ล้างข้อมูล
+                    🗑️ ล้างข้อมูล
                 </button>
             </div>
 
             <div id="resultContainer" class="result-grid"></div>
         </section>
+
+        <div class="section-divider"></div>
+
+        <!-- =============================================
+             SHOWCASE SECTION — 3 วิดีโอ
+        ============================================= -->
+        <section id="showcase" class="section showcase-section">
+            <div class="section-title">
+                <p class="badge">🎬 ผลงานจาก Easy Prompt AI</p>
+                <h2>ตัวอย่างคลิปธรรมะที่สร้างด้วยระบบ</h2>
+                <p>วิดีโอนิทานชาดก 9:16 ความยาว 60 วินาที — Realistic / Cinematic — Character Consistent<br>
+                   สร้างด้วย Easy Prompt AI + Google Flow / Kling / RunwayML</p>
+            </div>
+
+            <!-- Modal Backdrop สำหรับโหมดขยายวิดีโอ -->
+            <div id="showcaseModalBackdrop" class="showcase-modal-backdrop" aria-hidden="true"></div>
+
+            <!-- showcase-inner: vertical stack — main player centered (top) → thumbnail grid (bottom) -->
+            <div class="showcase-inner">
+            <div class="showcase-main-slot">
+                <div class="showcase-main-container" id="showcaseMainContainer">
+                    <button type="button" id="showcaseCloseBtn" class="showcase-close-btn" title="ปิด / ย่อขนาด" aria-label="ย่อขนาดวิดีโอ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <div class="showcase-main-player-wrapper">
+                        <button type="button" id="showcaseExpandFloatingBtn" class="showcase-expand-floating-btn" title="ขยายวิดีโอ" aria-label="ขยายวิดีโอ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                            <span>ขยาย</span>
+                        </button>
+                        <video id="mainShowcaseVideo" controls preload="metadata" class="showcase-main-video" src="videos/โชติปาละ.mp4">
+                            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ HTML5
+                        </video>
+                    </div>
+                    <div class="showcase-main-info">
+                        <h3 id="showcaseVideoTitle" class="showcase-main-title">โชติปาละ</h3>
+                        <p id="showcaseVideoSub" class="showcase-main-sub">60s • 9:16 • Realistic / Cinematic • Character Consistent</p>
+                        <button type="button" id="showcaseExpandBtn" class="showcase-expand-action-btn">
+                            <svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <polyline points="9 21 3 21 3 15"></polyline>
+                                <line x1="21" y1="3" x2="14" y2="10"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                            <span id="showcaseExpandBtnText">ขยายวิดีโอ</span>
+                        </button>
+                    </div>
+                </div>
+            </div><!-- /showcase-main-slot -->
+
+            <!-- วิดีโอตัวอย่าง 3 คลิป: เรียงใต้ main player -->
+            <div class="showcase-thumbs-grid">
+                <!-- ช่องที่ 1: โชติปาละ -->
+                <button type="button" class="showcase-thumb-card active"
+                    data-src="videos/โชติปาละ.mp4"
+                    data-title="โชติปาละ"
+                    data-sub="60s • 9:16 • Realistic / Cinematic • Character Consistent">
+                    <div class="thumb-video-wrapper">
+                        <video class="thumb-video-preview" preload="metadata" src="videos/โชติปาละ.mp4" muted></video>
+                        <div class="thumb-play-overlay">▶️</div>
+                    </div>
+                    <div class="thumb-info">
+                        <h4 class="thumb-title">โชติปาละ</h4>
+                        <p class="thumb-sub">60s • 9:16</p>
+                    </div>
+                </button>
+
+                <!-- ช่องที่ 2: บาลีไม่ง่าย -->
+                <button type="button" class="showcase-thumb-card"
+                    data-src="videos/บาลีไม่ง่าย.mp4"
+                    data-title="บาลีไม่ง่าย"
+                    data-sub="60s • 9:16 • Realistic / Cinematic • Character Consistent">
+                    <div class="thumb-video-wrapper">
+                        <video class="thumb-video-preview" preload="metadata" src="videos/บาลีไม่ง่าย.mp4" muted></video>
+                        <div class="thumb-play-overlay">▶️</div>
+                    </div>
+                    <div class="thumb-info">
+                        <h4 class="thumb-title">บาลีไม่ง่าย</h4>
+                        <p class="thumb-sub">60s • 9:16</p>
+                    </div>
+                </button>
+
+                <!-- ช่องที่ 3: กิจ 16 ไม่ตกกันดาร -->
+                <button type="button" class="showcase-thumb-card"
+                    data-src="videos/กิจ 16 ไม่ตกกันดาร.mp4"
+                    data-title="กิจ 16 ไม่ตกกันดาร"
+                    data-sub="60s • 9:16 • Realistic / Cinematic • Character Consistent">
+                    <div class="thumb-video-wrapper">
+                        <video class="thumb-video-preview" preload="metadata" src="videos/กิจ 16 ไม่ตกกันดาร.mp4" muted></video>
+                        <div class="thumb-play-overlay">▶️</div>
+                    </div>
+                    <div class="thumb-info">
+                        <h4 class="thumb-title">กิจ 16 ไม่ตกกันดาร</h4>
+                        <p class="thumb-sub">60s • 9:16</p>
+                    </div>
+                </button>
+            </div><!-- /showcase-thumbs-grid -->
+
+            </div><!-- /showcase-inner -->
+
+            <p class="showcase-note">📌 คลิก thumbnail เพื่อสลับชมวิดีโอ &nbsp;•&nbsp; ทุกคลิปสร้างด้วย Easy Prompt AI &nbsp;•&nbsp; 9:16 Realistic Cinematic</p>
+        </section>
     </main>
 
+    <!-- =============================================
+         FOOTER
+    ============================================= -->
     <footer class="footer">
-        <p>Easy Prompt AI — สร้างขึ้นเพื่อช่วยงานพระพุทธศาสนา</p>
+        <div class="footer-inner">
+            <p class="footer-brand">Easy Prompt AI</p>
+            <p class="footer-desc">เครื่องมือช่วยสร้างคลิปนิทานชาดก 1 นาที ด้วย AI<br>เพื่องานเผยแผ่พระพุทธศาสนา 🙏</p>
+            <div class="footer-tags">
+                <span class="footer-tag">🎬 9:16 Vertical</span>
+                <span class="footer-tag">60 วินาที</span>
+                <span class="footer-tag">Realistic Cinematic</span>
+                <span class="footer-tag">Character Consistent</span>
+                <span class="footer-tag">ChatGPT / Gemini</span>
+                <span class="footer-tag">Thai Buddhist AI</span>
+            </div>
+            <p class="footer-copy">© 2026 Easy Prompt AI — สร้างด้วยความศรัทธา</p>
+        </div>
     </footer>
 
-    <!-- Login Modal Overlay -->
-    <div id="loginModal" class="login-modal-overlay">
+    <!-- =============================================
+         AUTH MODAL (Login + Register)
+    ============================================= -->
+    <div id="authModal" class="login-modal-overlay">
         <div class="login-modal-card">
             <div class="login-modal-logo">EP</div>
-            <h2>เข้าสู่ระบบ Easy Prompt AI</h2>
-            <p>กรุณาลงชื่อเข้าใช้งานสำหรับสิทธิ์การเข้าถึงเครื่องมือช่วยสร้างคลิปธรรมะ</p>
-            
-            <form id="loginForm">
-                <div class="login-input-group">
-                    <label for="usernameInput">ชื่อผู้ใช้ (Username)</label>
-                    <input type="text" id="usernameInput" placeholder="กรอกชื่อผู้ใช้" required autocomplete="username" />
-                </div>
-                
-                <div class="login-input-group">
-                    <label for="passwordInput">รหัสผ่าน (Password)</label>
-                    <input type="password" id="passwordInput" placeholder="กรอกรหัสผ่าน" required autocomplete="current-password" />
-                </div>
-                
-                <p id="loginErrorMsg" class="login-error-text hidden">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</p>
-                
-                <button type="submit" id="loginSubmitBtn" class="primary-full-btn">เข้าสู่ระบบ</button>
-            </form>
-            
-            <div class="login-demo-hint">
-                <p>💡 บัญชีสำหรับ Demo: <strong>admin</strong> / รหัสผ่าน: <strong>1234</strong></p>
+            <h2>Easy Prompt AI</h2>
+            <p>กรุณาเข้าสู่ระบบหรือสมัครสมาชิกเพื่อใช้งานเครื่องมือสร้างคลิปธรรมะ</p>
+
+            <!-- Tab Switcher -->
+            <div class="auth-tabs">
+                <button id="tabLoginBtn" class="auth-tab auth-tab-active" type="button">เข้าสู่ระบบ</button>
+                <button id="tabRegisterBtn" class="auth-tab" type="button">สมัครสมาชิก</button>
             </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form" novalidate>
+                <div class="login-input-group">
+                    <label for="loginEmailInput">อีเมล (Email)</label>
+                    <input type="email" id="loginEmailInput" placeholder="กรอกอีเมลของคุณ" required
+                        autocomplete="email" />
+                </div>
+
+                <div class="login-input-group">
+                    <label for="loginPasswordInput">รหัสผ่าน (Password)</label>
+                    <input type="password" id="loginPasswordInput" placeholder="กรอกรหัสผ่าน" required
+                        autocomplete="current-password" />
+                </div>
+
+                <p id="loginErrorMsg" class="auth-message auth-error hidden"></p>
+
+                <button type="submit" id="loginSubmitBtn" class="primary-full-btn auth-submit-btn">
+                    เข้าสู่ระบบ
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form hidden" novalidate>
+                <div class="login-input-group">
+                    <label for="registerEmailInput">อีเมล (Email)</label>
+                    <input type="email" id="registerEmailInput" placeholder="กรอกอีเมลของคุณ" required
+                        autocomplete="email" />
+                </div>
+
+                <div class="login-input-group">
+                    <label for="registerPasswordInput">รหัสผ่าน (Password)</label>
+                    <input type="password" id="registerPasswordInput" placeholder="อย่างน้อย 6 ตัวอักษร" required
+                        autocomplete="new-password" />
+                </div>
+
+                <div class="login-input-group">
+                    <label for="registerPasswordConfirmInput">ยืนยันรหัสผ่าน (Confirm Password)</label>
+                    <input type="password" id="registerPasswordConfirmInput" placeholder="พิมพ์รหัสผ่านอีกครั้ง"
+                        required autocomplete="new-password" />
+                </div>
+
+                <p id="registerErrorMsg" class="auth-message auth-error hidden"></p>
+                <p id="registerSuccessMsg" class="auth-message auth-success hidden"></p>
+
+                <button type="submit" id="registerSubmitBtn" class="primary-full-btn auth-submit-btn">
+                    สมัครสมาชิก
+                </button>
+            </form>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="data.js?v=1.5"></script>
-    <script src="script.js?v=1.5"></script>
+    <script src="script.js?v=2.0"></script>
 </body>
 
 </html>

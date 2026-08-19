@@ -14,7 +14,15 @@ playwright/.auth/
 .DS_Store
 Thumbs.db
 
+# Videos & Media (Hosted externally on Cloudflare R2)
+videos/
+*.mp4
+
+# Backups & Temporary files
+*.bak
+
 # Developer Agent & IDE Configurations
 .agents/
 .gemini/
 brain/
+
